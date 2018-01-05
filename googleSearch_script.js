@@ -3,8 +3,8 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
-// @author       You
-// @include      /^http[s]?:\/\/.*google\.com.*\/search
+// @author       Borys Drozhak
+// @include      /^https:\/\/.*google\..*\/search
 // @grant        none
 // ==/UserScript==
 

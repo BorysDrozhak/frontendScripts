@@ -12,14 +12,14 @@
     'use strict';
 
     document.onkeyup = function(event) {
-        // if (event.code == "Escape") {
-        //     var inp = document.getElementById("source");
-        //     inp.focus();
-        //     inp.setSelectionRange(0, inp.value.length);
-        // }
         if (event.code == "Escape") {
-            var inp = document.getElementById("gt-swap").click();
+            var inp = document.getElementById("source");
+            inp.focus();
+            inp.setSelectionRange(0, inp.value.length);
         }
+        // if (event.code == "Escape") {
+        //     var inp = document.getElementById("gt-swap").click();
+        // }
         
     };
 })();

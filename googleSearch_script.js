@@ -12,7 +12,6 @@
     'use strict';
 
     document.selectedResultId=0;
-    var inp = document.getElementById("lst-ib");
     function selectResult(newId){
         var els = document.querySelectorAll("h3.r");
         if(newId < 0 || newId >= els.length)
@@ -28,7 +27,7 @@
         lnk.focus();
     }
     document.onkeyup = function(event) {
-        console.log(event);
+        var inp = document.getElementById("lst-ib");
         if (document.activeElement == inp) {
             if (event.code == "Escape")
                 inp.blur();
@@ -43,20 +42,29 @@
         }
         if (event.code == "ArrowDown")
             selectResult(document.selectedResultId+1);
-        if (event.code == "Enter") {
-            var el = document.querySelectorAll("h3.r")[document.selectedResultId];
-            var lnk = el.querySelector("a");
-            var url = lnk.href;
-            if (event.metaKey) {
-                var win = window.open(url,"_blank");
-                win.blur();
-                return false;
-            }
-            else {
-                document.location = url;
-                return false;
-            }
-        }
+    map = {}; // just in case u pressed meta and wanna just enter.
     };
+    
+    var map = {}; // array for storing several key events. I know it is not ideal solution :)
+    onkeydown = function(e){
+        e = e || event; // to deal with IE
+        map[e.keyCode] = e.type == 'keydown';
+        
+        var el = document.querySelectorAll("h3.r")[document.selectedResultId];
+        var lnk = el.querySelector("a");
+        var url = lnk.href;
+        if (map[13] && map[91]) { // enter + meta
+            // console.log('new tab');
+            var win = window.open(url,"_blank");
+            win.blur();
+            map = {};
+            return;
+        }
+        if (map[13] && !map[91]) { // any enter without meta
+                // console.log('enter');
+                document.location = url;
+                map = {};
+        }
+};
     selectResult(0);
 })();

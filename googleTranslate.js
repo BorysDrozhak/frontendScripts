@@ -17,9 +17,10 @@
             inp.focus();
             inp.setSelectionRange(0, inp.value.length);
         }
-        // if (event.code == "Escape") {
-        //     var inp = document.getElementById("gt-swap").click();
-        // }
-        
+        if (event.metaKey) {
+            var swap = document.querySelector('#gt-swap');
+            swap.dispatchEvent(new MouseEvent('mousedown'));
+            swap.dispatchEvent(new MouseEvent('mouseup'));
+        }
     };
 })();

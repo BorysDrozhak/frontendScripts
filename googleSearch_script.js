@@ -42,7 +42,8 @@
         }
         if (event.code == "ArrowDown")
             selectResult(document.selectedResultId+1);
-    map = {}; // just in case u pressed meta and wanna just enter.
+        
+        map = {}; // just in case u pressed meta and wanna just enter.
     };
     
     var map = {}; // array for storing several key events. I know it is not ideal solution :)

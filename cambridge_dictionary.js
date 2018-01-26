@@ -11,7 +11,7 @@
 (function() {
     'use strict';
 
-    document.onkeyup = function(event) {
+    document.onkeyup = event => {
         if (event.code == "Escape") {
             var modal = document.getElementsByClassName("modal modal--myd js-modal open")[0]; // get modal if it is open
             if (modal)

@@ -11,7 +11,7 @@
 (function() {
     'use strict';
 
-    document.onkeyup = function(event) {
+    document.onkeyup = event => {
         if (event.code == "Escape") {
             var inp = document.getElementById("source");
             inp.focus();
@@ -20,7 +20,7 @@
         map = {}; // in case there is up, remove map
     };
     var map = {}; // array for storing several key events.
-    onkeydown = function(e){
+    onkeydown = e => {
         e = e || event; // to deal with IE
         map[e.keyCode] = e.type == 'keydown';
    

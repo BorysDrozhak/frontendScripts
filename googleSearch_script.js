@@ -26,7 +26,7 @@
         el.innerHTML = "<div id=\"result-pointer\" style=\"position:absolute;left:-15px;\">&gt;</div>" + el.innerHTML;
         lnk.focus();
     }
-    document.onkeyup = function(event) {
+    document.onkeyup = event => {
         var inp = document.getElementById("lst-ib");
         if (document.activeElement == inp) {
             if (event.code == "Escape")
@@ -47,7 +47,7 @@
     };
     
     var map = {}; // array for storing several key events. I know it is not ideal solution :)
-    onkeydown = function(e){
+    onkeydown = e => {
         e = e || event; // to deal with IE
         map[e.keyCode] = e.type == 'keydown';
         
